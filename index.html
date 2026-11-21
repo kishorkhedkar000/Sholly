@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Hey Seetu Mayuri! 😜</title>
+  <title>Hey Sweetu Mayuri! 😜</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -224,7 +224,7 @@
 
   <div class="card" id="mainCard">
     <div id="askScreen">
-      <div class="pill-top">🚨 SEETU MAYURI STUBBORN ALERT 🚨</div>
+      <div class="pill-top">🚨 SWEETU MAYURI STUBBORN ALERT 🚨</div>
 
       <div class="stats-bar">
         <span id="chaseCounter">No Escapes: 0 😜</span>
@@ -232,7 +232,7 @@
       </div>
 
       <div class="big-emoji" id="moodIcon">🥺</div>
-      <h1>I'm Really Sorry, Seetu Mayuri!</h1>
+      <h1>I'm Really Sorry, Sweetu Mayuri!</h1>
       <p class="copy-line" id="sorryLine">
         Okay yes, I know I messed up! Stop being angry and just press Yes already—why are you working so hard to tap No?! 😂💖
       </p>
@@ -246,113 +246,11 @@
     </div>
 
     <div class="photo-reveal" id="photoScreen">
-      <div class="pill-top">🎉 FINALLY! SEETU MAYURI FORGAVE ME!</div>
+      <div class="pill-top">🎉 FINALLY! SWEETU MAYURI FORGAVE ME!</div>
       <div class="frame-box">
         <img src="https://plain-apac-prod-public.komododecks.com/202611/21/UKSYCWa4z1HBddKZuxQN/image.jpg" alt="Sorry Bala" />
-        <div class="frame-caption">Seetu Mayuri & Best Duo ✨💛</div>
+        <div class="frame-caption">Sweetu Mayuri & Best Duo ✨💛</div>
       </div>
       <h1>Aha! You Couldn't Escape! 😄❤️</h1>
       <p class="copy-line" style="margin-bottom: 0;">
-        Thank you for forgiving me, Seetu Mayuri! Now stop acting tough, give a big smile, and text me right now! 🍫✨
-      </p>
-    </div>
-  </div>
-
-  <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-    const mainCard = document.getElementById("mainCard");
-    const chaseCounter = document.getElementById("chaseCounter");
-    const patienceMeter = document.getElementById("patienceMeter");
-    const moodIcon = document.getElementById("moodIcon");
-    const sorryLine = document.getElementById("sorryLine");
-    const teaseLine = document.getElementById("teaseLine");
-    const askScreen = document.getElementById("askScreen");
-    const photoScreen = document.getElementById("photoScreen");
-
-    const funnyTeases = [
-      "Haha! Missed it, Seetu Mayuri! 😂",
-      "Arey! Why are you chasing 'No' like that?! 😜",
-      "No button has trust issues—it won't stay still! 🏃‍♂️💨",
-      "Even your finger is tired now, right? Just tap Yes! 👀",
-      "Warning: Being angry for too long causes extra teasing! 🚨",
-      "Look at the Yes button growing—it's begging for a click! ✨",
-      "Okay boss, you win the running game—now forgive me! 🥺❤️"
-    ];
-
-    const icons = ["😜", "😂", "🙈", "😭", "🫠", "🤩", "🙏"];
-    let escapes = 0;
-    let yesGrowth = 1;
-
-    function evadeTarget(e) {
-      if (e) e.preventDefault();
-
-      if (noBtn.style.position !== "fixed") {
-        const rect = noBtn.getBoundingClientRect();
-        noBtn.style.position = "fixed";
-        noBtn.style.left = rect.left + "px";
-        noBtn.style.top = rect.top + "px";
-      }
-
-      const margin = 16;
-      const maxX = Math.max(margin, window.innerWidth - noBtn.offsetWidth - margin);
-      const maxY = Math.max(margin, window.innerHeight - noBtn.offsetHeight - margin);
-
-      const nextX = Math.floor(Math.random() * maxX);
-      const nextY = Math.floor(Math.random() * maxY);
-
-      noBtn.style.left = nextX + "px";
-      noBtn.style.top = nextY + "px";
-
-      escapes++;
-      chaseCounter.textContent = `No Escapes: ${escapes} 😜`;
-
-      const leftPatience = Math.max(5, 100 - escapes * 12);
-      patienceMeter.textContent = `Patience Left: ${leftPatience}% ⏳`;
-
-      teaseLine.textContent = funnyTeases[(escapes - 1) % funnyTeases.length];
-      moodIcon.textContent = icons[(escapes - 1) % icons.length];
-
-      mainCard.classList.remove("shake");
-      void mainCard.offsetWidth;
-      mainCard.classList.add("shake");
-
-      if (escapes === 4) {
-        sorryLine.textContent = "Seetu Mayuri, seriously?! You've chased that No button 4 times already! Just forgive me and see the surprise! 😄";
-      }
-
-      yesGrowth = Math.min(yesGrowth + 0.09, 1.6);
-      yesBtn.style.transform = `scale(${yesGrowth})`;
-    }
-
-    noBtn.addEventListener("mouseover", evadeTarget);
-    noBtn.addEventListener("touchstart", evadeTarget, { passive: false });
-    noBtn.addEventListener("click", evadeTarget);
-
-    yesBtn.addEventListener("click", () => {
-      noBtn.style.display = "none";
-      askScreen.style.display = "none";
-      photoScreen.style.display = "flex";
-      showerEmojis(80);
-    });
-
-    function showerEmojis(count = 50) {
-      const pool = ["❤️", "💛", "💚", "💙", "💜", "🧡", "😂", "✨", "🎉", "🌸"];
-      for (let i = 0; i < count; i++) {
-        setTimeout(() => {
-          const item = document.createElement("div");
-          item.classList.add("fly-item");
-          item.textContent = pool[Math.floor(Math.random() * pool.length)];
-          item.style.left = Math.random() * 100 + "vw";
-          item.style.bottom = "-25px";
-          item.style.fontSize = (Math.random() * 16 + 18) + "px";
-          item.style.animationDuration = (Math.random() * 1.8 + 2.3) + "s";
-          document.body.appendChild(item);
-
-          setTimeout(() => item.remove(), 4200);
-        }, i * 35);
-      }
-    }
-  </script>
-</body>
-</html>
+        Thank you for forgiving me, Sweetu Mayuri! Now stop acting tough, give a big smile, and text me right now! 🍫✨
